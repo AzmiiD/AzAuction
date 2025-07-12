@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction House - Minecraft Server</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Minecraft:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="minecraft-bg"></div>
+<div class="container">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/minecraft_logo_icon_168974.png" alt="Minecraft" class="logo-icon">
+                <h1>Auction House</h1>
+            </div>
+            <p class="subtitle">Trade with players across the server</p>
+        </div>
+    </header>
+
+    <div class="controls">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="🔍 Search items..." class="search-input">
+        </div>
+        <div class="filter-container">
+            <select id="sortSelect" class="sort-select">
+                <option value="newest">⏰ Newest First</option>
+                <option value="oldest">📅 Oldest First</option>
+                <option value="price-low">💰 Price: Low to High</option>
+                <option value="price-high">💎 Price: High to Low</option>
+            </select>
+            <button id="refreshBtn" class="refresh-btn">🔄 Refresh</button>
+        </div>
+    </div>
+
+    <div class="stats-panel">
+        <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-info">
+                <span class="stat-label">Total Items</span>
+                <span class="stat-value" id="totalItems">0</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+                <span class="stat-label">Average Price</span>
+                <span class="stat-value" id="avgPrice">$0.00</span>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-info">
+                <span class="stat-label">Active Sellers</span>
+                <span class="stat-value" id="activeSellers">0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="inventory-container">
+        <div class="inventory-header">
+            <h2>🏪 Items for Sale</h2>
+            <div class="inventory-info">
+                <span id="itemCount">Loading...</span>
+            </div>
+        </div>
+        <div class="inventory-grid" id="auctionGrid">
+            <div class="loading-screen">
+                <div class="loading-spinner"></div>
+                <p>Loading auctions...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button id="prevPage" class="page-btn" disabled>← Previous</button>
+        <div class="page-info">
+            <span id="pageInfo">Page 1 of 1</span>
+        </div>
+        <button id="nextPage" class="page-btn" disabled>Next →</button>
+    </div>
+</div>
+
+<!-- Item Detail Modal -->
+<div id="itemModal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="item-display">
+                <img id="modalItemIcon" src="" alt="Item Icon" class="modal-item-icon">
+                <div class="item-title">
+                    <h2 id="modalItemName"></h2>
+                    <span id="modalItemType" class="item-type-badge"></span>
+                </div>
+            </div>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="item-stats">
+                <div class="stat-row">
+                    <span class="stat-label">💰 Price:</span>
+                    <span id="modalPrice" class="price-tag"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">👤 Seller:</span>
+                    <span id="modalSeller" class="seller-name"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">📦 Amount:</span>
+                    <span id="modalAmount" class="amount-badge"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">⏰ Listed:</span>
+                    <span id="modalListTime" class="time-badge"></span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">⏳ Expires:</span>
+                    <span id="modalExpireTime" class="time-badge"></span>
+                </div>
+            </div>
+            <div class="item-description">
+                <div class="item-lore" id="modalLore"></div>
+                <div class="item-enchantments" id="modalEnchantments"></div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="purchase-info">
+                <p>💡 To purchase this item, use the command in-game:</p>
+                <div class="command-display">
+                    <code>/ah buy <span id="modalItemId"></span></code>
+                    <button class="copy-btn" onclick="copyCommand()">📋 Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

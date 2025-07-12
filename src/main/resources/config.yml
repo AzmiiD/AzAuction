@@ -1,0 +1,61 @@
+# AzAuction Configuration
+# Created by Azmi
+
+# Database settings
+database:
+  # Database type: sqlite, mysql
+  type: "sqlite"
+  # SQLite settings
+  sqlite:
+    file: "auctions.db"
+  # MySQL settings (if using MySQL)
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "auctionhouse"
+    username: "root"
+    password: ""
+
+# Auction settings
+auction:
+  # Maximum number of items a player can have listed
+  max-listings-per-player: 10
+  # Maximum price for an item
+  max-price: 1000000.0
+  # Minimum price for an item
+  min-price: 0.01
+  # Tax percentage (0.0 = no tax, 0.05 = 5% tax)
+  tax-rate: 0.05
+  # Duration in hours before unsold items are returned to seller
+  listing-duration: 168 # 7 days
+  # Enable web interface
+  web-enabled: true
+  # Web server port
+  web-port: 8080
+  # Web server host (0.0.0.0 for all interfaces)
+  web-host: "0.0.0.0"
+
+# GUI settings
+gui:
+  # Items per page in the auction house GUI
+  items-per-page: 45
+  # GUI title
+  title: "&6&lAuction House"
+  # Update interval in seconds
+  update-interval: 5
+
+# Messages
+messages:
+  prefix: "&8[&6AuctionHouse&8] "
+  no-permission: "&cYou don't have permission to use this command!"
+  item-listed: "&aYour item has been listed for &6$%price%&a!"
+  item-bought: "&aYou bought &6%item% &afor &6$%price%&a!"
+  item-sold: "&aYour &6%item% &ahas been sold for &6$%price%&a!"
+  not-enough-money: "&cYou don't have enough money to buy this item!"
+  listing-expired: "&cYour listing for &6%item% &chas expired and been returned to you!"
+  max-listings-reached: "&cYou have reached the maximum number of listings (&6%max%&c)!"
+  invalid-price: "&cInvalid price! Price must be between &6$%min% &cand &6$%max%&c!"
+  no-item-in-hand: "&cYou must have an item in your hand to sell!"
+  item-removed: "&aYour listing has been removed and the item returned to you!"
+  database-error: "&cA database error occurred. Please try again later."
+  web-url: "&aWeb interface available at: &6http://localhost:%port%"

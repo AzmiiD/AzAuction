@@ -1,0 +1,36 @@
+name: AzAuction
+version: '1.0-SNAPSHOT'
+main: io.github.AzmiiD.azAuction.AzAuction
+api-version: '1.21'
+authors: [ Azmii_ ]
+description: Plugin Auction By Azmii
+depend: [Vault]
+softdepend: []
+
+commands:
+  auctionhouse:
+    description: Main auction house command
+    usage: /ah <sell|buy|list|remove> [args]
+    aliases: [ah]
+    permission: auctionhouse.use
+  ahreload:
+    description: Reload the auction house plugin
+    usage: /ahreload
+    permission: auctionhouse.admin
+
+permissions:
+  auctionhouse.use:
+    description: Allows use of auction house
+    default: true
+  auctionhouse.sell:
+    description: Allows selling items
+    default: true
+  auctionhouse.buy:
+    description: Allows buying items
+    default: true
+  auctionhouse.admin:
+    description: Admin permissions
+    default: op
+  auctionhouse.web:
+    description: Allows access to web interface
+    default: true

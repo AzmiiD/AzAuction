@@ -23,7 +23,7 @@ AzAuction is a modern, feature-rich, and user-friendly Auction House plugin for 
 
 A built-in lightweight web server allows players to browse auctions using a browser.
 
-> 📸 **Preview** *[(replace with your own image](https://i.imgur.com/4X4vumj.png))*:  
+> 📸 **Preview** *[(Preview](https://i.imgur.com/4X4vumj.png))*:  
 
 Enable it in `config.yml`:
 ```yaml
